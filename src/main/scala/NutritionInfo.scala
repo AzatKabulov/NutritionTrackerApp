@@ -5,4 +5,9 @@ abstract class NutritionInfo {
   val protein: Double        // Protein in grams
   val fat: Double            // Fat in grams
   val carbs: Double          // Carbs in grams
+
+  //Print all the nutrition values
+  def printSummary(): Unit = {
+    println(s"$name → $calories kcal | Protein: $protein g | Fat: $fat g | Carbs: $carbs g")
+  }
 }
