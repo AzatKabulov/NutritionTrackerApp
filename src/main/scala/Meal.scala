@@ -22,4 +22,4 @@ class Meal (val name: String, val items: List [Food]) extends NutritionInfo {
 
 
 
-}
+
