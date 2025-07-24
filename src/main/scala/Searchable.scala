@@ -30,3 +30,4 @@ trait Searchable[T <: NutritionInfo] {
   def filterByCarbs(items: List[T], target: Double): List[T] = {
     items.filter(i => math.abs(i.carbs - target) <= 1.0)
   }
+}  
