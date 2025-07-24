@@ -1,32 +1,32 @@
 // Trait for search/filter operations
-trait Searchable :
+trait Searchable[T <: NutritionInfo] {
 
   // Search by name (partial match, case-insensitive)
-  def searchByName(items: List[NutritionInfo], keyword: String): List[NutritionInfo] = {
+  def searchByName(items: List[T], keyword: String): List[T] = {
     items.filter(i => i.name.toLowerCase.contains(keyword.toLowerCase))
   }
 
   // Filter by max calories
-  def filterByMaxCalories(items: List[NutritionInfo], max: Double): List[NutritionInfo] = {
+  def filterByMaxCalories(items: List[T], max: Double): List[T] = {
     items.filter(_.calories <= max)
   }
 
   // Filter by min calories
-  def filterByMinCalories(items: List[NutritionInfo], min: Double): List[NutritionInfo] = {
+  def filterByMinCalories(items: List[T], min: Double): List[T] = {
     items.filter(_.calories >= min)
   }
 
   // Filter by minimum protein
-  def filterByMinProtein(items: List[NutritionInfo], min: Double): List[NutritionInfo] = {
+  def filterByMinProtein(items: List[T], min: Double): List[T] = {
     items.filter(_.protein >= min)
   }
 
   // Filter by maximum fat
-  def filterByMaxFat(items: List[NutritionInfo], max: Double): List[NutritionInfo] = {
+  def filterByMaxFat(items: List[T], max: Double): List[T] = {
     items.filter(_.fat <= max)
   }
 
   // Filter by exact carbs (or near range ± 1g)
-  def filterByCarbs(items: List[NutritionInfo], target: Double): List[NutritionInfo] = {
+  def filterByCarbs(items: List[T], target: Double): List[T] = {
     items.filter(i => math.abs(i.carbs - target) <= 1.0)
   }
