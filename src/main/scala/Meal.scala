@@ -1,25 +1,15 @@
-// Meal class represents a group of Food items
-class Meal (val name: String, val items: List [Food]) extends NutritionInfo {
+class Meal(
+            val name: String,
+            val foods: List[Food]
+          ) extends NutritionInfo {
 
-  // Total calories of all items
-  val calories: Double = items.map(_.calories).sum
+  val calories: Double = foods.map(_.calories).sum
+  val protein: Double = foods.map(_.protein).sum
+  val fat: Double = foods.map(_.fat).sum
+  val carbs: Double = foods.map(_.carbs).sum
+  val grams: Double = foods.map(_.grams).sum
 
-  // Total protein (in grams)
-  val protein: Double = items.map(_.protein).sum
-  // fat protein (in grams)
-  val fat: Double = items.map(_.fat).sum
-  // Total carbs (in grams)
-  val carbs: Double = items.map(_.carbs).sum
-
-  // This method prints a summary of the meal and its food items
-  override def printSummary(): Unit = {
-    println(s"[Meal] $name → $calories kcal | P: $protein g | F: $fat g | C: $carbs g")
-    
-    // List each food item included in the meal
-    items.foreach(i => println(s"   - ${i.name}"))
+  override def printSummary(): String = {
+    f"$name (${grams}%.0f g) -> ${calories}%.0f kcal | Protein: ${protein}%.1f g | Fat: ${fat}%.1f g | Carbs: ${carbs}%.1f g"
   }
 }
-
-
-
-
