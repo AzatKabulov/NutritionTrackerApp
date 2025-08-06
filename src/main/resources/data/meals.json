@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Grilled Chicken & Rice",
+    "category": "Lunch",
+    "imagePath": "images/chicken_rice.jpg",
+    "calories": 550,
+    "protein": 45,
+    "carbs": 40,
+    "fats": 20,
+    "servingSize": "1 plate"
+  },
+  {
+    "name": "Omelette & Toast",
+    "category": "Breakfast",
+    "imagePath": "images/omelette_toast.jpg",
+    "calories": 400,
+    "protein": 25,
+    "carbs": 30,
+    "fats": 18,
+    "servingSize": "1 set"
+  },
+  {
+    "name": "Protein Smoothie",
+    "category": "Snack",
+    "imagePath": "images/smoothie.jpg",
+    "calories": 250,
+    "protein": 20,
+    "carbs": 15,
+    "fats": 8,
+    "servingSize": "1 glass"
+  }
+]
