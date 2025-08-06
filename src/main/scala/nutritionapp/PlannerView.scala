@@ -1,12 +1,12 @@
 package nutritionapp
 
 import nutritionapp.model._
+import nutritionapp.dialog.{AddFoodDialog, AddMealDialog}
 import scalafx.scene.layout._
 import scalafx.scene.control._
 import scalafx.geometry._
 import scalafx.stage.Stage
 import scalafx.Includes._
-import scalafx.scene.control.Alert.AlertType
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -37,6 +37,8 @@ object PlannerView {
       dateLabel.text = formatDate(date)
       datePicker.value = date
 
+      MealPlanner.loadFromFileForDate(date)
+
       val items = MealPlanner.getItemsForDate(date)
       val grouped = items.groupBy(_.mealType)
 
@@ -57,7 +59,16 @@ object PlannerView {
             alignment = Pos.CenterLeft
             children = Seq(
               new Label(s"🍎 ${item.name}"),
-              new Label(f"${item.calories}%.0f kcal")
+              new Label(f"${item.calories}%.0f kcal"),
+              new Button("🗑") {
+                onAction = _ => {
+                  MealPlanner.removeItemForDate(currentDate, item)
+                  MealPlanner.saveToFileForDate(currentDate)
+                  refreshPlanner(currentDate)
+                }
+                tooltip = new Tooltip("Remove item")
+                style = "-fx-background-color: #ffdddd; -fx-border-color: #dd4444;"
+              }
             )
           }
         }
@@ -77,11 +88,11 @@ object PlannerView {
         }
 
         val addFoodBtn = new Button("➕ Add Food") {
-          onAction = _ => showAddFoodDialog(meal, stage)
+          onAction = _ => showAddFoodDialog(meal, stage, user)
         }
 
         val addMealBtn = new Button("➕ Add Meal") {
-          onAction = _ => showAddMealDialog(meal, stage)
+          onAction = _ => showAddMealDialog(meal, stage, user)
         }
 
         val actionRow = new HBox(10, addFoodBtn, addMealBtn) {
@@ -100,60 +111,22 @@ object PlannerView {
       totalLabel.text = f"🔢 Daily Total: $totalCals%.0f kcal, $totalProtein%.1f g P, $totalCarbs%.1f g C, $totalFats%.1f g F"
     }
 
-    def showAddFoodDialog(mealType: String, stage: Stage): Unit = {
-      val foods: List[Food] = List(
-        Food("Oats", 150, 5, 27, 3),
-        Food("Eggs", 200, 12, 1, 15)
+    def showAddFoodDialog(mealType: String, stage: Stage, user: User): Unit = {
+      stage.scene = new scalafx.scene.Scene(
+        AddFoodDialog.create(mealType, currentDate, stage, user),
+        1000,
+        700
       )
-
-      val dialog = new ChoiceDialog(defaultChoice = foods.head, choices = foods) {
-        title = s"Add Food to $mealType"
-        headerText = s"Select a food to add to $mealType:"
-        contentText = "Food:"
-      }
-
-      dialog.showAndWait().foreach { selected =>
-        val food = selected.asInstanceOf[Food]
-        val item = PlannerItem(
-          name = food.name,
-          source = "Food",
-          calories = food.calories,
-          protein = food.protein,
-          carbs = food.carbs,
-          fats = food.fats,
-          mealType = mealType
-        )
-        MealPlanner.addItemForDate(currentDate, item)
-        refreshPlanner(currentDate)
-      }
+      MealPlanner.saveToFileForDate(currentDate)
     }
 
-    def showAddMealDialog(mealType: String, stage: Stage): Unit = {
-      val meals: List[Meal] = List(
-        Meal("Simple Chicken Meal", List(Food("Chicken", 250, 30, 0, 10))),
-        Meal("Tuna Sandwich", List(Food("Tuna", 200, 25, 3, 4), Food("Bread", 100, 3, 20, 1)))
+    def showAddMealDialog(mealType: String, stage: Stage, user: User): Unit = {
+      stage.scene = new scalafx.scene.Scene(
+        AddMealDialog.create(mealType, currentDate, stage, user),
+        1000,
+        700
       )
-
-      val dialog = new ChoiceDialog(defaultChoice = meals.head, choices = meals) {
-        title = s"Add Meal to $mealType"
-        headerText = s"Select a meal to add to $mealType:"
-        contentText = "Meal:"
-      }
-
-      dialog.showAndWait().foreach { selected =>
-        val meal = selected.asInstanceOf[Meal]
-        val item = PlannerItem(
-          name = meal.name,
-          source = "Meal",
-          calories = meal.totalCalories,
-          protein = meal.totalProtein,
-          carbs = meal.totalCarbs,
-          fats = meal.totalFats,
-          mealType = mealType
-        )
-        MealPlanner.addItemForDate(currentDate, item)
-        refreshPlanner(currentDate)
-      }
+      MealPlanner.saveToFileForDate(currentDate)
     }
 
     val prevButton = new Button("⬅") {
@@ -192,17 +165,8 @@ object PlannerView {
         totalLabel
       )
     }
-    MealPlanner.addItemForDate(currentDate, PlannerItem(
-      name = "Test Oats",
-      source = "Food",
-      calories = 150,
-      protein = 5,
-      carbs = 27,
-      fats = 3,
-      mealType = "Lunch"
-    ))
 
     refreshPlanner(currentDate)
-    return root
+    root
   }
 }
