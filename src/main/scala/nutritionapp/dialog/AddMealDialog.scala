@@ -1,9 +1,8 @@
 package nutritionapp.dialog
 
-import nutritionapp.model.{Meal, PlannerItem, MealPlanner, User}
+import nutritionapp.model.{Meal, PlannerItem, User}
 import nutritionapp.component.MealCardMini
-import nutritionapp.MealDatabase
-import nutritionapp.PlannerView
+import nutritionapp.{MealDatabase, MealPlanner, PlannerView}
 
 import scalafx.scene.Scene
 import scalafx.scene.control._

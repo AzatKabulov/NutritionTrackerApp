@@ -6,30 +6,19 @@ import scala.util.Using
 
 object AuthManager {
 
-  // Safely load users.json from resources folder
   val userFilePath: String = {
     val resource = getClass.getResource("/data/users.json")
     if (resource != null) resource.getPath
     else "src/main/resources/data/users.json"
   }
 
-  // Load users from file
   def loadUsers(): List[User] = {
-    println(s"📂 Loading users from: $userFilePath")
-
-    if (!new java.io.File(userFilePath).exists()) {
-      println("⚠️ File does not exist.")
-      return List()
-    }
+    if (!new java.io.File(userFilePath).exists()) return List()
 
     val json = Using(Source.fromFile(userFilePath))(_.mkString).getOrElse("[]")
-
-    println("📖 Raw JSON Content:")
-    println(json)
-
     val parsed = ujson.read(json)
 
-    val users = parsed.arr.toList.map { js =>
+    parsed.arr.toList.map { js =>
       User(
         name = js("name").str,
         email = js("email").str,
@@ -37,15 +26,13 @@ object AuthManager {
         age = js("age").num.toInt,
         height = js("height").num,
         activityLevel = js("activityLevel").str,
-        goal = js("goal").str
+        goal = js("goal").str,
+        weight = js.obj.get("weight").map(_.num).getOrElse(0.0),
+        targetCalories = js.obj.get("targetCalories").map(_.num.toInt)
       )
     }
-
-    println(s"✅ Loaded ${users.length} user(s)")
-    users
   }
 
-  // Save users to file
   def saveUsers(users: List[User]): Unit = {
     val jsonArr = ujson.Arr(users.map { user =>
       ujson.Obj(
@@ -55,7 +42,9 @@ object AuthManager {
         "age" -> user.age,
         "height" -> user.height,
         "activityLevel" -> user.activityLevel,
-        "goal" -> user.goal
+        "goal" -> user.goal,
+        "weight" -> user.weight,
+        "targetCalories" -> user.targetCalories.map(ujson.Num(_)).getOrElse(ujson.Null)
       )
     }: _*)
 
@@ -64,11 +53,15 @@ object AuthManager {
     writer.close()
   }
 
-  // Register new user
   def registerUser(newUser: User): Boolean = {
     val users = loadUsers()
     if (users.exists(_.email == newUser.email)) return false
     saveUsers(users :+ newUser)
     true
+  }
+
+  // ✅ Add this:
+  def findUserByEmail(email: String): Option[User] = {
+    loadUsers().find(_.email == email)
   }
 }

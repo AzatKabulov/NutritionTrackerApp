@@ -1,32 +1,82 @@
 [
   {
-    "name": "Apple",
+    "name": "Avocado",
     "category": "Fruits",
-    "imagePath": "images/apple.jpg",
-    "calories": 95,
-    "protein": 0.5,
-    "carbs": 25,
+    "imagePath": "images/avocado.jpg",
+    "calories": 240,
+    "protein": 3.0,
+    "carbs": 12.8,
+    "fats": 21.0,
+    "fiber": 10.0
+  },
+  {
+    "name": "Blueberry",
+    "category": "Fruits",
+    "imagePath": "images/blueberry.jpg",
+    "calories": 85,
+    "protein": 1.1,
+    "carbs": 21.0,
+    "fats": 0.5,
+    "fiber": 3.6
+  },
+  {
+    "name": "Cherry",
+    "category": "Fruits",
+    "imagePath": "images/cherry.jpg",
+    "calories": 97,
+    "protein": 1.6,
+    "carbs": 24.7,
     "fats": 0.3,
-    "fiber": 4.4
+    "fiber": 3.2
   },
   {
-    "name": "Banana",
+    "name": "Cranberry",
     "category": "Fruits",
-    "imagePath": "images/banana.jpg",
-    "calories": 105,
-    "protein": 1.3,
-    "carbs": 27,
-    "fats": 0.4,
-    "fiber": 3.1
+    "imagePath": "images/cranberry.jpg",
+    "calories": 46,
+    "protein": 0.4,
+    "carbs": 12.0,
+    "fats": 0.1,
+    "fiber": 4.6
   },
   {
-    "name": "Broccoli",
-    "category": "Vegetables",
-    "imagePath": "images/broccoli.jpg",
-    "calories": 55,
-    "protein": 3.7,
-    "carbs": 11.2,
-    "fats": 0.6,
-    "fiber": 5.1
+    "name": "Lemon",
+    "category": "Fruits",
+    "imagePath": "images/lemon.jpg",
+    "calories": 17,
+    "protein": 0.6,
+    "carbs": 5.4,
+    "fats": 0.2,
+    "fiber": 1.6
+  },
+  {
+    "name": "Melon",
+    "category": "Fruits",
+    "imagePath": "images/melon.jpg",
+    "calories": 60,
+    "protein": 1.5,
+    "carbs": 14.4,
+    "fats": 0.3,
+    "fiber": 1.6
+  },
+  {
+    "name": "Pineapple",
+    "category": "Fruits",
+    "imagePath": "images/pineapple.jpg",
+    "calories": 83,
+    "protein": 0.9,
+    "carbs": 22.0,
+    "fats": 0.2,
+    "fiber": 2.3
+  },
+  {
+    "name": "Strawberry",
+    "category": "Fruits",
+    "imagePath": "images/strawberry.jpg",
+    "calories": 49,
+    "protein": 1.0,
+    "carbs": 11.7,
+    "fats": 0.5,
+    "fiber": 3.0
   }
 ]

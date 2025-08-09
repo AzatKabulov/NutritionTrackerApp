@@ -6,6 +6,8 @@ case class User(
                  password: String,
                  age: Int,
                  height: Double,
-                 activityLevel: String, // we'll replace with enum later
-                 goal: String           // same here
+                 activityLevel: String, 
+                 goal: String,          
+                 weight: Double,        
+                 targetCalories: Option[Int] = None 
                )

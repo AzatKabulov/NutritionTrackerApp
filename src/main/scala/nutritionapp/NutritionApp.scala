@@ -13,14 +13,14 @@ object NutritionApp extends JFXApp3 {
         val userOpt = AuthManager.loadUsers().find(_.email == email)
         userOpt match {
           case Some(user) =>
-            println(s"🔐 Auto-login as $email")
+            println(s"Auto-login as $email")
             DashboardView.show(primaryStage, user)
           case None =>
-            println("⚠️ Session email not found in user list.")
+            println("Session email not found in user list.")
             LoginView.show(primaryStage)
         }
       case None =>
-        println("🔓 No active session, showing login.")
+        println("No active session, showing login.")
         LoginView.show(primaryStage)
     }
   }

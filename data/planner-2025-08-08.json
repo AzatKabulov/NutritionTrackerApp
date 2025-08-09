@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Apple",
+    "source": "Food",
+    "calories": 95,
+    "protein": 0.5,
+    "carbs": 25,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  }
+]

@@ -1,9 +1,8 @@
 package nutritionapp.dialog
 
-import nutritionapp.model.{Food, PlannerItem, MealPlanner, User}
+import nutritionapp.model.{Food, PlannerItem, User}
 import nutritionapp.component.FoodCardMini
-import nutritionapp.FoodDatabase
-import nutritionapp.PlannerView
+import nutritionapp.{MealPlanner, PlannerView, FoodDatabase}
 
 import scalafx.scene.Scene
 import scalafx.scene.control._
@@ -88,6 +87,7 @@ object AddFoodDialog {
           mealType = mealType
         )
         MealPlanner.addItemForDate(selectedDate, item)
+        MealPlanner.saveToFileForDate(selectedDate)
         stage.scene = new Scene(PlannerView.create(stage, user), 1000, 700)
       }
     }

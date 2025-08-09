@@ -6,24 +6,26 @@ import scala.util.Using
 
 object FoodDatabase {
 
-  val foodFilePath = "src/main/resources/data/food.json"
-
   def loadFoods(): List[Food] = {
-    if (!new java.io.File(foodFilePath).exists()) return List()
+    val streamOpt = Option(getClass.getResourceAsStream("/data/food.json"))
+    if (streamOpt.isEmpty) {
+      println("Could not find /data/food.json on classpath.")
+      return List()
+    }
 
-    val json = Using(Source.fromFile(foodFilePath))(_.mkString).getOrElse("[]")
-    val parsed = ujson.read(json)
+    val jsonStr = Using(Source.fromInputStream(streamOpt.get))(_.mkString).getOrElse("[]")
+    val parsed = ujson.read(jsonStr)
 
     parsed.arr.toList.map { item =>
       Food(
-        name = item("name").str,
+        name     = item("name").str,
         category = item("category").str,
-        imagePath = item("imagePath").str,
+        imagePath= item("imagePath").str,
         calories = item("calories").num,
-        protein = item("protein").num,
-        carbs = item("carbs").num,
-        fats = item("fats").num,
-        fiber = item("fiber").num
+        protein  = item("protein").num,
+        carbs    = item("carbs").num,
+        fats     = item("fats").num,
+        fiber    = item("fiber").num
       )
     }
   }

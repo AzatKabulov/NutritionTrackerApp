@@ -1,9 +1,10 @@
-package nutritionapp.model
+package nutritionapp
 
 import java.time.LocalDate
 import scala.collection.mutable
 import upickle.default._
 import os._
+import nutritionapp.model.PlannerItem
 
 object MealPlanner {
 
@@ -37,7 +38,7 @@ object MealPlanner {
     plannerData ++= data
   }
 
-  // ✅ Save planner for a date to file
+  //  Save planner for a date to file
   def saveToFileForDate(date: LocalDate): Unit = {
     val items = getItemsForDate(date)
     val json = ujson.Arr(items.map { item =>
@@ -59,7 +60,7 @@ object MealPlanner {
     os.write.over(file, ujson.write(json, indent = 2))
   }
 
-  // ✅ Load planner from file (if exists)
+  //  Load planner from file (if exists)
   def loadFromFileForDate(date: LocalDate): Unit = {
     val file = os.pwd / "data" / s"planner-${date.toString}.json"
     if (os.exists(file)) {

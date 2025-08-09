@@ -11,7 +11,7 @@ object MealDatabase {
   def load(): Unit = {
     val stream = Option(getClass.getResourceAsStream("/data/meals.json"))
     if (stream.isEmpty) {
-      println("⚠️ meals.json not found in /resources/data/. No meals loaded.")
+      println("meals.json not found in /resources/data/. No meals loaded.")
       meals = List()
       return
     }

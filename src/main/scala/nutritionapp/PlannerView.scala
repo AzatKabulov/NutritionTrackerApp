@@ -167,6 +167,12 @@ object PlannerView {
     }
 
     refreshPlanner(currentDate)
+
+    //  Enable external planner update trigger
+    EventBus.onPlannerUpdated = () => {
+      refreshPlanner(currentDate)
+    }
+
     root
   }
 }

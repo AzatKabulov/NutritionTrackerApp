@@ -7,5 +7,31 @@ case class PlannerItem(
                         protein: Double,
                         carbs: Double,
                         fats: Double,
-                        mealType: String // NEW
+                        mealType: String
                       )
+
+object PlannerItem {
+  def fromFood(food: Food, mealType: String): PlannerItem = {
+    PlannerItem(
+      name = food.name,
+      source = "Food",
+      calories = food.calories,
+      protein = food.protein,
+      carbs = food.carbs,
+      fats = food.fats,
+      mealType = mealType
+    )
+  }
+
+  def fromMeal(meal: Meal, mealType: String): PlannerItem = {
+    PlannerItem(
+      name = meal.name,
+      source = "Meal",
+      calories = meal.calories,
+      protein = meal.protein,
+      carbs = meal.carbs,
+      fats = meal.fats,
+      mealType = mealType
+    )
+  }
+}
