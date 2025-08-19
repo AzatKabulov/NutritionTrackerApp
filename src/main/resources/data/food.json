@@ -1,82 +1,256 @@
 [
-  {
-    "name": "Avocado",
-    "category": "Fruits",
-    "imagePath": "images/avocado.jpg",
-    "calories": 240,
-    "protein": 3.0,
-    "carbs": 12.8,
-    "fats": 21.0,
-    "fiber": 10.0
+  { "name": "Avocado", "category": "Fruits", "imagePath": "images/foods/avocado.png",
+    "calories": 160, "protein": 2.0, "carbs": 8.5, "fats": 14.7, "fiber": 6.7,
+    "unitLabel": "avocado", "unitGrams": 150
   },
-  {
-    "name": "Blueberry",
-    "category": "Fruits",
-    "imagePath": "images/blueberry.jpg",
-    "calories": 85,
-    "protein": 1.1,
-    "carbs": 21.0,
-    "fats": 0.5,
-    "fiber": 3.6
+  { "name": "Apple", "category": "Fruits", "imagePath": "images/foods/redapple.png",
+    "calories": 52, "protein": 0.3, "carbs": 13.8, "fats": 0.2, "fiber": 2.4,
+    "unitLabel": "apple", "unitGrams": 182
   },
-  {
-    "name": "Cherry",
-    "category": "Fruits",
-    "imagePath": "images/cherry.jpg",
-    "calories": 97,
-    "protein": 1.6,
-    "carbs": 24.7,
-    "fats": 0.3,
-    "fiber": 3.2
+  { "name": "Banana", "category": "Fruits", "imagePath": "images/foods/banana.png",
+    "calories": 89, "protein": 1.1, "carbs": 22.8, "fats": 0.3, "fiber": 2.6,
+    "unitLabel": "banana", "unitGrams": 118
   },
-  {
-    "name": "Cranberry",
-    "category": "Fruits",
-    "imagePath": "images/cranberry.jpg",
-    "calories": 46,
-    "protein": 0.4,
-    "carbs": 12.0,
-    "fats": 0.1,
-    "fiber": 4.6
+  { "name": "Blackberries", "category": "Fruits", "imagePath": "images/foods/blackberries.png",
+    "calories": 43, "protein": 1.4, "carbs": 9.6, "fats": 0.5, "fiber": 5.3
   },
-  {
-    "name": "Lemon",
-    "category": "Fruits",
-    "imagePath": "images/lemon.jpg",
-    "calories": 17,
-    "protein": 0.6,
-    "carbs": 5.4,
-    "fats": 0.2,
-    "fiber": 1.6
+  { "name": "Blueberries", "category": "Fruits", "imagePath": "images/foods/blueberries.png",
+    "calories": 57, "protein": 0.7, "carbs": 14.5, "fats": 0.3, "fiber": 2.4
   },
-  {
-    "name": "Melon",
-    "category": "Fruits",
-    "imagePath": "images/melon.jpg",
-    "calories": 60,
-    "protein": 1.5,
-    "carbs": 14.4,
-    "fats": 0.3,
-    "fiber": 1.6
+  { "name": "Cherry", "category": "Fruits", "imagePath": "images/foods/cherry.png",
+    "calories": 63, "protein": 1.1, "carbs": 16.0, "fats": 0.2, "fiber": 2.1
   },
-  {
-    "name": "Pineapple",
-    "category": "Fruits",
-    "imagePath": "images/pineapple.jpg",
-    "calories": 83,
-    "protein": 0.9,
-    "carbs": 22.0,
-    "fats": 0.2,
-    "fiber": 2.3
+  { "name": "Coconut", "category": "Fruits", "imagePath": "images/foods/coconut.png",
+    "calories": 354, "protein": 3.3, "carbs": 15.2, "fats": 33.5, "fiber": 9.0
   },
-  {
-    "name": "Strawberry",
-    "category": "Fruits",
-    "imagePath": "images/strawberry.jpg",
-    "calories": 49,
-    "protein": 1.0,
-    "carbs": 11.7,
-    "fats": 0.5,
-    "fiber": 3.0
+  { "name": "Dates", "category": "Fruits", "imagePath": "images/foods/dates.png",
+    "calories": 277, "protein": 1.8, "carbs": 75.0, "fats": 0.2, "fiber": 6.7
+  },
+  { "name": "Fig", "category": "Fruits", "imagePath": "images/foods/fig.png",
+    "calories": 74, "protein": 0.8, "carbs": 19.2, "fats": 0.3, "fiber": 2.9
+  },
+  { "name": "Grapes (Red)", "category": "Fruits", "imagePath": "images/foods/grape.png",
+    "calories": 69, "protein": 0.7, "carbs": 18.1, "fats": 0.2, "fiber": 0.9
+  },
+  { "name": "Grapes (Green)", "category": "Fruits", "imagePath": "images/foods/greengrape.png",
+    "calories": 69, "protein": 0.7, "carbs": 18.1, "fats": 0.2, "fiber": 0.9
+  },
+  { "name": "Kiwi", "category": "Fruits", "imagePath": "images/foods/kiwi.png",
+    "calories": 61, "protein": 1.1, "carbs": 14.7, "fats": 0.5, "fiber": 3.0
+  },
+  { "name": "Lemon", "category": "Fruits", "imagePath": "images/foods/lemon.png",
+    "calories": 29, "protein": 1.1, "carbs": 9.3, "fats": 0.3, "fiber": 2.8
+  },
+  { "name": "Lime", "category": "Fruits", "imagePath": "images/foods/lime.png",
+    "calories": 30, "protein": 0.7, "carbs": 10.5, "fats": 0.2, "fiber": 2.8
+  },
+  { "name": "Mango", "category": "Fruits", "imagePath": "images/foods/mango.png",
+    "calories": 60, "protein": 0.8, "carbs": 15.0, "fats": 0.4, "fiber": 1.6
+  },
+  { "name": "Passion Fruit", "category": "Fruits", "imagePath": "images/foods/maracuya.png",
+    "calories": 97, "protein": 2.2, "carbs": 23.4, "fats": 0.7, "fiber": 10.4
+  },
+  { "name": "Melon", "category": "Fruits", "imagePath": "images/foods/melon.png",
+    "calories": 34, "protein": 0.8, "carbs": 8.2, "fats": 0.2, "fiber": 0.9
+  },
+  { "name": "Orange", "category": "Fruits", "imagePath": "images/foods/orange.png",
+    "calories": 47, "protein": 0.9, "carbs": 11.8, "fats": 0.1, "fiber": 2.4
+  },
+  { "name": "Peach", "category": "Fruits", "imagePath": "images/foods/peach.png",
+    "calories": 39, "protein": 0.9, "carbs": 9.5, "fats": 0.3, "fiber": 1.5
+  },
+  { "name": "Pineapple", "category": "Fruits", "imagePath": "images/foods/pineapple.png",
+    "calories": 50, "protein": 0.5, "carbs": 13.1, "fats": 0.1, "fiber": 1.4
+  },
+  { "name": "Raisins", "category": "Fruits", "imagePath": "images/foods/blackraisin.png",
+    "calories": 299, "protein": 3.1, "carbs": 79.2, "fats": 0.5, "fiber": 3.7
+  },
+  { "name": "Raspberries", "category": "Fruits", "imagePath": "images/foods/raspberries.png",
+    "calories": 52, "protein": 1.2, "carbs": 12.0, "fats": 0.7, "fiber": 6.5
+  },
+  { "name": "Strawberry", "category": "Fruits", "imagePath": "images/foods/strawberry.png",
+    "calories": 32, "protein": 0.7, "carbs": 7.7, "fats": 0.3, "fiber": 2.0
+  },
+  { "name": "Watermelon", "category": "Fruits", "imagePath": "images/foods/watermelon.png",
+    "calories": 30, "protein": 0.6, "carbs": 7.6, "fats": 0.2, "fiber": 0.4
+  },
+
+  { "name": "Broccoli", "category": "Vegetables", "imagePath": "images/foods/broccoli.png",
+    "calories": 34, "protein": 2.8, "carbs": 6.6, "fats": 0.4, "fiber": 2.6
+  },
+  { "name": "Carrot", "category": "Vegetables", "imagePath": "images/foods/carrot.png",
+    "calories": 41, "protein": 0.9, "carbs": 9.6, "fats": 0.2, "fiber": 2.8
+  },
+  { "name": "Cauliflower", "category": "Vegetables", "imagePath": "images/foods/cauliflower.png",
+    "calories": 25, "protein": 1.9, "carbs": 5.0, "fats": 0.3, "fiber": 2.0
+  },
+  { "name": "Chilli Pepper", "category": "Vegetables", "imagePath": "images/foods/chilli.png",
+    "calories": 40, "protein": 2.0, "carbs": 9.5, "fats": 0.4, "fiber": 1.5
+  },
+  { "name": "Cucumber", "category": "Vegetables", "imagePath": "images/foods/cucumber.png",
+    "calories": 15, "protein": 0.7, "carbs": 3.6, "fats": 0.1, "fiber": 0.5
+  },
+  { "name": "Eggplant", "category": "Vegetables", "imagePath": "images/foods/eggplant.png",
+    "calories": 25, "protein": 1.0, "carbs": 5.9, "fats": 0.2, "fiber": 3.0
+  },
+  { "name": "Garlic", "category": "Vegetables", "imagePath": "images/foods/garlic.png",
+    "calories": 149, "protein": 6.4, "carbs": 33.1, "fats": 0.5, "fiber": 2.1
+  },
+  { "name": "Green Capsicum", "category": "Vegetables", "imagePath": "images/foods/greencapsicum.png",
+    "calories": 20, "protein": 0.9, "carbs": 4.6, "fats": 0.2, "fiber": 1.7
+  },
+  { "name": "Lettuce", "category": "Vegetables", "imagePath": "images/foods/lettuce.png",
+    "calories": 15, "protein": 1.4, "carbs": 2.9, "fats": 0.2, "fiber": 1.3
+  },
+  { "name": "Mushroom", "category": "Vegetables", "imagePath": "images/foods/mushroom.png",
+    "calories": 22, "protein": 3.1, "carbs": 3.3, "fats": 0.3, "fiber": 1.0
+  },
+  { "name": "Onion", "category": "Vegetables", "imagePath": "images/foods/onion.png",
+    "calories": 40, "protein": 1.1, "carbs": 9.3, "fats": 0.1, "fiber": 1.7
+  },
+  { "name": "Pickles", "category": "Vegetables", "imagePath": "images/foods/pickles.png",
+    "calories": 12, "protein": 0.5, "carbs": 2.4, "fats": 0.2, "fiber": 1.2
+  },
+  { "name": "Pumpkin", "category": "Vegetables", "imagePath": "images/foods/pumpkin.png",
+    "calories": 26, "protein": 1.0, "carbs": 6.5, "fats": 0.1, "fiber": 0.5
+  },
+  { "name": "Radish", "category": "Vegetables", "imagePath": "images/foods/radish.png",
+    "calories": 16, "protein": 0.7, "carbs": 3.4, "fats": 0.1, "fiber": 1.6
+  },
+  { "name": "Red Capsicum", "category": "Vegetables", "imagePath": "images/foods/redcapsicum.png",
+    "calories": 31, "protein": 1.0, "carbs": 6.0, "fats": 0.3, "fiber": 2.1
+  },
+  { "name": "Spinach", "category": "Vegetables", "imagePath": "images/foods/spinach.png",
+    "calories": 23, "protein": 2.9, "carbs": 3.6, "fats": 0.4, "fiber": 2.2
+  },
+  { "name": "Tomato", "category": "Vegetables", "imagePath": "images/foods/tomato.png",
+    "calories": 18, "protein": 0.9, "carbs": 3.9, "fats": 0.2, "fiber": 1.2
+  },
+
+  { "name": "Egg", "category": "Protein", "imagePath": "images/foods/egg.png",
+    "calories": 155, "protein": 13.0, "carbs": 1.1, "fats": 11.0, "fiber": 0.0,
+    "unitLabel": "egg", "unitGrams": 50
+  },
+  { "name": "Chicken Breast", "category": "Protein", "imagePath": "images/foods/chickenbreast.png",
+    "calories": 165, "protein": 31.0, "carbs": 0.0, "fats": 3.6, "fiber": 0.0
+  },
+  { "name": "Chicken Thighs", "category": "Protein", "imagePath": "images/foods/chickenthighs.png",
+    "calories": 209, "protein": 26.0, "carbs": 0.0, "fats": 10.9, "fiber": 0.0
+  },
+  { "name": "Beef", "category": "Protein", "imagePath": "images/foods/beef.png",
+    "calories": 250, "protein": 26.0, "carbs": 0.0, "fats": 17.0, "fiber": 0.0
+  },
+  { "name": "Lamb", "category": "Protein", "imagePath": "images/foods/lamb.png",
+    "calories": 294, "protein": 25.6, "carbs": 0.0, "fats": 21.0, "fiber": 0.0
+  },
+  { "name": "Salmon", "category": "Protein", "imagePath": "images/foods/salmon.png",
+    "calories": 208, "protein": 20.0, "carbs": 0.0, "fats": 13.0, "fiber": 0.0
+  },
+  { "name": "Shrimp", "category": "Protein", "imagePath": "images/foods/shrimps.png",
+    "calories": 99, "protein": 24.0, "carbs": 0.2, "fats": 0.3, "fiber": 0.0
+  },
+
+  { "name": "Bread (White)", "category": "Carbohydrates", "imagePath": "images/foods/whitebread.png",
+    "calories": 265, "protein": 9.0, "carbs": 49.0, "fats": 3.2, "fiber": 2.7,
+    "unitLabel": "slice", "unitGrams": 25
+  },
+  { "name": "Sourdough Bread", "category": "Carbohydrates", "imagePath": "images/foods/sourdoughbread.png",
+    "calories": 289, "protein": 8.9, "carbs": 57.0, "fats": 2.9, "fiber": 2.7
+  },
+  { "name": "Spaghetti", "category": "Carbohydrates", "imagePath": "images/foods/spaghetti.png",
+    "calories": 158, "protein": 5.8, "carbs": 30.9, "fats": 0.9, "fiber": 1.8
+  },
+  { "name": "Macaroni", "category": "Carbohydrates", "imagePath": "images/foods/macaroni.png",
+    "calories": 164, "protein": 5.8, "carbs": 30.2, "fats": 0.9, "fiber": 1.8
+  },
+  { "name": "Macaroni (Cheese)", "category": "Carbohydrates", "imagePath": "images/foods/macaroni cheese.png",
+    "calories": 164, "protein": 7.3, "carbs": 23.5, "fats": 5.0, "fiber": 1.3
+  },
+  { "name": "White Rice", "category": "Carbohydrates", "imagePath": "images/foods/whiterice.png",
+    "calories": 130, "protein": 2.4, "carbs": 28.7, "fats": 0.3, "fiber": 0.4
+  },
+  { "name": "Oats", "category": "Carbohydrates", "imagePath": "images/foods/oats.png",
+    "calories": 379, "protein": 13.2, "carbs": 67.7, "fats": 6.5, "fiber": 10.1
+  },
+  { "name": "Cereal (Cornflakes)", "category": "Carbohydrates", "imagePath": "images/foods/cereal.png",
+    "calories": 357, "protein": 8.0, "carbs": 84.0, "fats": 0.4, "fiber": 2.7
+  },
+  { "name": "Potato", "category": "Carbohydrates", "imagePath": "images/foods/potato.png",
+    "calories": 77, "protein": 2.0, "carbs": 17.0, "fats": 0.1, "fiber": 2.2
+  },
+  { "name": "Corn", "category": "Carbohydrates", "imagePath": "images/foods/corn.png",
+    "calories": 96, "protein": 3.4, "carbs": 21.0, "fats": 1.5, "fiber": 2.4
+  },
+  { "name": "Honey", "category": "Carbohydrates", "imagePath": "images/foods/honey.png",
+    "calories": 304, "protein": 0.3, "carbs": 82.4, "fats": 0.0, "fiber": 0.2
+  },
+  { "name": "Ketchup", "category": "Carbohydrates", "imagePath": "images/foods/ketchup.png",
+    "calories": 112, "protein": 1.3, "carbs": 26.0, "fats": 0.2, "fiber": 0.3
+  },
+  { "name": "Coca-Cola", "category": "Carbohydrates", "imagePath": "images/foods/cocacola.png",
+    "calories": 42, "protein": 0.0, "carbs": 10.6, "fats": 0.0, "fiber": 0.0
+  },
+  { "name": "Pepsi", "category": "Carbohydrates", "imagePath": "images/foods/pepsi.png",
+    "calories": 42, "protein": 0.0, "carbs": 10.6, "fats": 0.0, "fiber": 0.0
+  },
+  { "name": "Sprite", "category": "Carbohydrates", "imagePath": "images/foods/sprite.png",
+    "calories": 39, "protein": 0.0, "carbs": 9.6, "fats": 0.0, "fiber": 0.0
+  },
+  { "name": "Mirinda Orange", "category": "Carbohydrates", "imagePath": "images/foods/mirindaorange.png",
+    "calories": 46, "protein": 0.0, "carbs": 11.4, "fats": 0.0, "fiber": 0.0
+  },
+  { "name": "Lipton Iced Tea", "category": "Carbohydrates", "imagePath": "images/foods/lipton.png",
+    "calories": 28, "protein": 0.0, "carbs": 7.5, "fats": 0.0, "fiber": 0.0
+  },
+
+  { "name": "Almonds", "category": "Fats", "imagePath": "images/foods/almond.png",
+    "calories": 579, "protein": 21.2, "carbs": 21.7, "fats": 49.9, "fiber": 12.5
+  },
+  { "name": "Cashews", "category": "Fats", "imagePath": "images/foods/cashew.png",
+    "calories": 553, "protein": 18.2, "carbs": 30.2, "fats": 43.8, "fiber": 3.3
+  },
+  { "name": "Hazelnuts", "category": "Fats", "imagePath": "images/foods/hazelnuts.png",
+    "calories": 628, "protein": 14.9, "carbs": 16.7, "fats": 60.8, "fiber": 9.7
+  },
+  { "name": "Peanuts", "category": "Fats", "imagePath": "images/foods/peanut.png",
+    "calories": 567, "protein": 25.8, "carbs": 16.1, "fats": 49.2, "fiber": 8.5
+  },
+  { "name": "Pistachios", "category": "Fats", "imagePath": "images/foods/pistache.png",
+    "calories": 562, "protein": 20.2, "carbs": 27.5, "fats": 45.3, "fiber": 10.3
+  },
+  { "name": "Sunflower Seeds", "category": "Fats", "imagePath": "images/foods/sunflowerseeds.png",
+    "calories": 584, "protein": 20.8, "carbs": 20.0, "fats": 51.5, "fiber": 8.6
+  },
+  { "name": "Walnuts", "category": "Fats", "imagePath": "images/foods/walnut.png",
+    "calories": 654, "protein": 15.2, "carbs": 13.7, "fats": 65.2, "fiber": 6.7
+  },
+  { "name": "Black Olives", "category": "Fats", "imagePath": "images/foods/blackolives.png",
+    "calories": 115, "protein": 0.8, "carbs": 6.0, "fats": 10.7, "fiber": 3.2
+  },
+  { "name": "Olive Oil", "category": "Fats", "imagePath": "images/foods/oliveoil.png",
+    "calories": 884, "protein": 0.0, "carbs": 0.0, "fats": 100.0, "fiber": 0.0
+  },
+  { "name": "Vegetable Oil", "category": "Fats", "imagePath": "images/foods/oil.png",
+    "calories": 884, "protein": 0.0, "carbs": 0.0, "fats": 100.0, "fiber": 0.0
+  },
+  { "name": "Butter", "category": "Fats", "imagePath": "images/foods/butter.png",
+    "calories": 717, "protein": 0.9, "carbs": 0.1, "fats": 81.1, "fiber": 0.0
+  },
+
+  { "name": "Swiss Cheese", "category": "Dairy", "imagePath": "images/foods/swisscheese.png",
+    "calories": 380, "protein": 27.0, "carbs": 3.4, "fats": 30.0, "fiber": 0.0,
+    "unitLabel": "slice", "unitGrams": 28
+  },
+  { "name": "Cheddar Cheese", "category": "Dairy", "imagePath": "images/foods/cheddarcheese.png",
+    "calories": 403, "protein": 25.0, "carbs": 1.3, "fats": 33.0, "fiber": 0.0
+  },
+  { "name": "Whole Milk", "category": "Dairy", "imagePath": "images/foods/fullcreammilk.png",
+    "calories": 61, "protein": 3.2, "carbs": 4.8, "fats": 3.3, "fiber": 0.0
+  },
+  { "name": "Low-Fat Milk", "category": "Dairy", "imagePath": "images/foods/lowfatmilk.png",
+    "calories": 42, "protein": 3.4, "carbs": 5.0, "fats": 1.0, "fiber": 0.0
+  },
+  { "name": "Ice Cream", "category": "Dairy", "imagePath": "images/foods/icecream.png",
+    "calories": 207, "protein": 3.5, "carbs": 24.0, "fats": 11.0, "fiber": 0.7
   }
 ]

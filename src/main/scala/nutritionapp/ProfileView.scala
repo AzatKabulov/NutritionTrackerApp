@@ -21,10 +21,11 @@ object ProfileView {
   private val BORDER_COL   = "#E6F2EC"
   private val FIELD_BORDER = "rgba(207,233,222,0.95)"
 
+  private def fmtInt(n: Int): String        = if (n > 0) n.toString else ""
+  private def fmtDbl(d: Double): String     = if (d > 0) (if (d.isWhole) d.toInt.toString else d.toString) else ""
+  private def optToStr(o: Option[Int]): String = o.map(_.toString).getOrElse("")
+
   def show(stage: Stage, user: User): Unit = {
-    val wasMax = stage.isMaximized
-    val prevX = stage.getX; val prevY = stage.getY
-    val prevW = stage.getWidth; val prevH = stage.getHeight
 
     def icon(name: String, size: Int = 20): Option[ImageView] =
       Option(getClass.getResourceAsStream(s"/images/$name")).map { s =>
@@ -57,13 +58,21 @@ object ProfileView {
            |-fx-padding: 6;""".stripMargin
     }
 
+    // PREFILL from user
     val nameField           = capsuleField("Name", user.name)
-    val ageField            = capsuleField("Age")
-    val heightField         = capsuleField("Height (cm)")
-    val weightField         = capsuleField("Weight (kg)")
-    val targetCaloriesField = capsuleField("Target Calories")
-    val activityBox         = capsuleCombo(Seq("Sedentary","Light","Moderate","Active","Very Active"), "Moderate")
-    val goalBox             = capsuleCombo(Seq("Maintain","Gain Muscle","Lose Fat"), "Gain Muscle")
+    val ageField            = capsuleField("Age",           fmtInt(user.age))
+    val heightField         = capsuleField("Height (cm)",   fmtDbl(user.height))
+    val weightField         = capsuleField("Weight (kg)",   fmtDbl(user.weight))
+    val targetCaloriesField = capsuleField("Target Calories", optToStr(user.targetCalories))
+
+    val activityOptions = Seq("Sedentary","Light","Moderate","Active","Very Active")
+    val goalOptions     = Seq("Maintain","Gain Muscle","Lose Fat")
+
+    val activityDefault = if (user.activityLevel.nonEmpty) user.activityLevel else "Moderate"
+    val goalDefault     = if (user.goal.nonEmpty)          user.goal         else "Maintain"
+
+    val activityBox = capsuleCombo(activityOptions, activityDefault)
+    val goalBox     = capsuleCombo(goalOptions,     goalDefault)
 
     val avatarInitial = user.name.trim.headOption.map(_.toUpper).getOrElse('A').toString
     val avatarBadge = new StackPane {
@@ -84,6 +93,7 @@ object ProfileView {
       textFill = Color.web(SUBTLE_INK)
     }
     val titleBlock = new VBox(6) { alignment = Pos.Center; children = Seq(titleLbl, subtitleLbl) }
+
     val form = new GridPane {
       alignment = Pos.Center
       hgap = 20; vgap = 16
@@ -149,15 +159,21 @@ object ProfileView {
       b
     }
 
+    val status = new Label("") { textFill = Color.web("#2F6D5F"); style = "-fx-font-size: 12;" }
+
     val saveBtn = primaryBtn("Save")
     val backBtn = outlineBtn("Back to Dashboard")
-    val buttons = new HBox(18) { alignment = Pos.Center; padding = Insets(18, 0, 0, 0); children = Seq(saveBtn, backBtn) }
+    val buttons = new HBox(18) {
+      alignment = Pos.Center
+      padding = Insets(18, 0, 0, 0)
+      children = Seq(saveBtn, backBtn)
+    }
 
-    val card = new VBox(22) {
+    val card = new VBox(10) {
       alignment = Pos.TopCenter
       padding = Insets(48, 28, 34, 28)
       maxWidth = 980
-      children = Seq(titleBlock, form, buttons)
+      children = Seq(titleBlock, form, status, buttons)
       style =
         s"""-fx-background-color: #FFFFFF;
            |-fx-background-radius: 24;
@@ -177,17 +193,34 @@ object ProfileView {
       style = s"-fx-background-color: $BG_GRADIENT;"
     }
 
-    saveBtn.onAction = _ => DashboardView.show(stage, user)
+    // SAVE: persist to users.json, keep email/password, update others
+    saveBtn.onAction = _ => {
+      def parseInt(s: String): Option[Int] =
+        Option(s).map(_.trim).filter(_.nonEmpty).flatMap(x => util.Try(x.toInt).toOption)
+      def parseDbl(s: String): Option[Double] =
+        Option(s).map(_.trim).filter(_.nonEmpty).flatMap(x => util.Try(x.toDouble).toOption)
+
+      val updated = user.copy(
+        name           = nameField.text.value.trim,
+        age            = parseInt(ageField.text.value).getOrElse(0),
+        height         = parseDbl(heightField.text.value).getOrElse(0.0),
+        weight         = parseDbl(weightField.text.value).getOrElse(0.0),
+        activityLevel  = Option(activityBox.value.value).getOrElse(user.activityLevel),
+        goal           = Option(goalBox.value.value).getOrElse(user.goal),
+        targetCalories = parseInt(targetCaloriesField.text.value)
+      )
+
+      val users = AuthManager.loadUsers()
+      val newList = users.map(u => if (u.email.equalsIgnoreCase(user.email)) updated else u)
+      AuthManager.saveUsers(newList)
+
+      status.text = "Saved ✓"
+      DashboardView.show(stage, updated)
+    }
+
     backBtn.onAction = _ => DashboardView.show(stage, user)
 
-    stage.scene = new Scene { root = rootContainer }
-    Platform.runLater {
-      if (wasMax) stage.setMaximized(true)
-      else {
-        stage.setX(prevX); stage.setY(prevY)
-        stage.setWidth(prevW); stage.setHeight(prevH)
-      }
-    }
     stage.title = "Edit Profile"
+    Nav.go(stage, rootContainer) // ← apply fullscreen-by-default or remembered size
   }
 }

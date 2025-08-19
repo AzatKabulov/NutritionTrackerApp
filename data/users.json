@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Azat",
+    "email": "kabulow123@gmail.com",
+    "password": "Notorious2004",
+    "age": 22,
+    "height": 180,
+    "activityLevel": "Moderate",
+    "goal": "Lose Fat",
+    "weight": 69,
+    "targetCalories": 2700
+  },
+  {
+    "name": "Kemal",
+    "email": "kemal123@gmail.com",
+    "password": "12348765",
+    "age": 20,
+    "height": 177,
+    "activityLevel": "Low",
+    "goal": "Gain Muscle",
+    "weight": 68,
+    "targetCalories": null
+  },
+  {
+    "name": "Orax",
+    "email": "orax@gmail.com",
+    "password": "orax2004",
+    "age": 22,
+    "height": 185,
+    "activityLevel": "High",
+    "goal": "Gain Muscle",
+    "weight": 69,
+    "targetCalories": null
+  },
+  {
+    "name": "meret",
+    "email": "meret@gmail.com",
+    "password": "meret2004",
+    "age": 24,
+    "height": 180,
+    "activityLevel": "Medium",
+    "goal": "Gain Muscle",
+    "weight": 69,
+    "targetCalories": null
+  },
+  {
+    "name": "familymart",
+    "email": "familymart@gmail.com",
+    "password": "familymart",
+    "age": 22,
+    "height": 189,
+    "activityLevel": "Medium",
+    "goal": "Gain Muscle",
+    "weight": 80,
+    "targetCalories": 1500
+  },
+  {
+    "name": "Sanjar",
+    "email": "annayarow04@icloud.com",
+    "password": "Saiks1510",
+    "age": 21,
+    "height": 180,
+    "activityLevel": "High",
+    "goal": "Maintain",
+    "weight": 77,
+    "targetCalories": null
+  }
+]

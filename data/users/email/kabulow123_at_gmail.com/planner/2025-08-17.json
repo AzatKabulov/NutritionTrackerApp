@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Apple",
+    "source": "Food",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 13.8,
+    "fats": 0.2,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Chicken Bucket",
+    "source": "Meal",
+    "calories": 850,
+    "protein": 60,
+    "carbs": 50,
+    "fats": 48,
+    "mealType": "Breakfast"
+  }
+]

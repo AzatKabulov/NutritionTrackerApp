@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Avocado",
+    "source": "Food",
+    "calories": 160,
+    "protein": 2,
+    "carbs": 8.5,
+    "fats": 14.7,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Blueberries",
+    "source": "Food",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.5,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Banana",
+    "source": "Food",
+    "calories": 89,
+    "protein": 1.1,
+    "carbs": 22.8,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Blackberries",
+    "source": "Food",
+    "calories": 43,
+    "protein": 1.4,
+    "carbs": 9.6,
+    "fats": 0.5,
+    "mealType": "Breakfast"
+  }
+]

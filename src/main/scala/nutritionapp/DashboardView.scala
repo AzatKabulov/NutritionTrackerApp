@@ -16,15 +16,15 @@ import nutritionapp.model.User
 
 object DashboardView {
 
-  private val BgGradient   = "linear-gradient(to bottom right, #DFF7EF, #E6FAF2)"
-  private val Ink          = "#013B2D"
-  private val SubtleInk    = "#1A5E52"
-  private val Primary      = "#6DBE75"
+  private val BgGradient = "linear-gradient(to bottom right, #DFF7EF, #E6FAF2)"
+  private val Ink = "#013B2D"
+  private val SubtleInk = "#1A5E52"
+  private val Primary = "#6DBE75"
   private val SurfaceGlass = "rgba(255,255,255,0.90)"
-  private val BorderCol    = "#BFE9DA"
-  private val CardBg       = "#FFFFFF"
-  private val CardBorder   = "#CDEFE4"
-  private val CardShadow   = 0.12
+  private val BorderCol = "#BFE9DA"
+  private val CardBg = "#FFFFFF"
+  private val CardBorder = "#CDEFE4"
+  private val CardShadow = 0.12
 
   def show(stage: Stage, user: User): Unit = {
     println("Loading DashboardView")
@@ -38,7 +38,9 @@ object DashboardView {
       val img = new ImageView {
         val stream = Option(getClass.getResourceAsStream("/images/" + imageFile))
         image = stream.map(new Image(_)).getOrElse(new Image("https://via.placeholder.com/100"))
-        fitWidth = 100; fitHeight = 100; preserveRatio = true
+        fitWidth = 100;
+        fitHeight = 100;
+        preserveRatio = true
       }
       val label = new Label(title.toUpperCase) {
         font = Font.font("Segoe UI", FontWeight.Bold, 15)
@@ -48,7 +50,8 @@ object DashboardView {
         alignment = Pos.Center
         padding = Insets(20)
         children = Seq(img, label)
-        prefWidth = 200; prefHeight = 200
+        prefWidth = 200;
+        prefHeight = 200
         focusTraversable = true
         style =
           s"""-fx-background-color: $CardBg;
@@ -61,14 +64,26 @@ object DashboardView {
 
       Tooltip.install(card, new Tooltip(title.capitalize))
 
-      val liftIn  = new ScaleTransition(Duration(120), card) { toX = 1.05; toY = 1.05 }
-      val liftOut = new ScaleTransition(Duration(120), card) { toX = 1.00; toY = 1.00 }
-      card.onMouseEntered = _ => { liftOut.stop(); liftIn.play() }
-      card.onMouseExited  = _ => { liftIn.stop(); liftOut.play() }
-      card.onMousePressed = _ => { card.translateY = 1; card.effect = new DropShadow(20, Color.web("#6DBE7533")) }
-      card.onMouseReleased = _ => { card.translateY = 0; card.effect = null }
-      card.onMouseClicked  = _ => onClick()
-      card.onKeyPressed    = e => e.getCode match {
+      val liftIn = new ScaleTransition(Duration(120), card) {
+        toX = 1.05; toY = 1.05
+      }
+      val liftOut = new ScaleTransition(Duration(120), card) {
+        toX = 1.00; toY = 1.00
+      }
+      card.onMouseEntered = _ => {
+        liftOut.stop(); liftIn.play()
+      }
+      card.onMouseExited = _ => {
+        liftIn.stop(); liftOut.play()
+      }
+      card.onMousePressed = _ => {
+        card.translateY = 1; card.effect = new DropShadow(20, Color.web("#6DBE7533"))
+      }
+      card.onMouseReleased = _ => {
+        card.translateY = 0; card.effect = null
+      }
+      card.onMouseClicked = _ => onClick()
+      card.onKeyPressed = e => e.getCode match {
         case JfxKeyCode.ENTER | JfxKeyCode.SPACE => onClick()
         case _ => ()
       }
@@ -76,28 +91,29 @@ object DashboardView {
     }
 
     val foodBtn = menuButton("Food", "food.png")(() => {
-      stage.setMaximized(true)
-      stage.scene = new Scene { root = FoodView.create(stage, user) }
+      Nav.go(stage, FoodView.create(stage, user))
     })
     val mealsBtn = menuButton("Meals", "meals.png")(() => {
-      stage.setMaximized(true)
-      stage.scene = new Scene { root = MealView.create(stage, user) }
+      Nav.go(stage, MealView.create(stage, user))
     })
     val plannerBtn = menuButton("Planner", "planner.png")(() => {
-      stage.setMaximized(true)
-      stage.scene = new Scene { root = PlannerView.create(stage, user) }
+      // ✅ Make sure planner is scoped to the logged-in user before opening it
+      MealPlanner.setCurrentUser(user.email)
+      Nav.go(stage, PlannerView.create(stage, user))
     })
     val profileBtn = menuButton("Profile", "profile.png")(() => {
-      stage.setMaximized(true)
-      ProfileView.show(stage, user)   // ← pass user now
+      ProfileView.show(stage, user)
     })
     val settingsBtn = menuButton("Settings", "settings.png")(() => {
-      stage.setMaximized(true)
       SettingsView.show(stage)
     })
 
-    val topRow    = new HBox(28) { alignment = Pos.Center; children = Seq(foodBtn, mealsBtn, plannerBtn) }
-    val bottomRow = new HBox(28) { alignment = Pos.Center; children = Seq(profileBtn, settingsBtn) }
+    val topRow = new HBox(28) {
+      alignment = Pos.Center; children = Seq(foodBtn, mealsBtn, plannerBtn)
+    }
+    val bottomRow = new HBox(28) {
+      alignment = Pos.Center; children = Seq(profileBtn, settingsBtn)
+    }
 
     val dashboardCard = new VBox(30) {
       alignment = Pos.Center
@@ -120,11 +136,10 @@ object DashboardView {
       style = s"-fx-background-color: $BgGradient;"
     }
 
-    stage.setMaximized(true)
     stage.title = "Nutrition Dashboard"
-    stage.scene = new Scene { root = rootPane }
+    Nav.go(stage, rootPane) // ← single place that applies fullscreen/remembered size
   }
 
   extension (s: String) private def capitalize: String =
-    if (s.nonEmpty) s.head.toUpper + s.tail else s
+    if (s.nonEmpty) s.take(1).toUpperCase + s.drop(1) else s
 }

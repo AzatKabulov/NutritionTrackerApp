@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Banana",
+    "source": "Fruits",
+    "calories": 89,
+    "protein": 1.1,
+    "carbs": 22.8,
+    "fats": 0.3,
+    "mealType": "Dinner"
+  },
+  {
+    "name": "Doritos",
+    "source": "Snack",
+    "calories": 150,
+    "protein": 2,
+    "carbs": 18,
+    "fats": 8,
+    "mealType": "Snack"
+  }
+]

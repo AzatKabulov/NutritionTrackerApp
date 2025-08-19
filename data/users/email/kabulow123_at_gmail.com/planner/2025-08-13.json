@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Chicken Curry with Rice",
+    "source": "Meal",
+    "calories": 700,
+    "protein": 35,
+    "carbs": 88,
+    "fats": 22,
+    "mealType": "Dinner"
+  },
+  {
+    "name": "Banana",
+    "source": "Food",
+    "calories": 89,
+    "protein": 1.1,
+    "carbs": 22.8,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Banana",
+    "source": "Food",
+    "calories": 89,
+    "protein": 1.1,
+    "carbs": 22.8,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  },
+  {
+    "name": "Banana",
+    "source": "Food",
+    "calories": 89,
+    "protein": 1.1,
+    "carbs": 22.8,
+    "fats": 0.3,
+    "mealType": "Breakfast"
+  }
+]
